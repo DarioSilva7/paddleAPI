@@ -1,6 +1,6 @@
 import express from 'express';
 import authRoutes from './modules/auth/auth.routes';
-import videogamesRoutes from './modules/videogames/videogames.routes';
+import userRoutes from './modules/user/videogames.routes';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSetup from './docs/swagger';
 
@@ -13,6 +13,6 @@ app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerSetup));
 
 app.get("/ping", (req, res)=> res.send("Pong"))
 app.use('/auth', authRoutes)
-app.use('/videogames', videogamesRoutes)
+app.use('/user', userRoutes)
 
 export= app;
