@@ -1,6 +1,6 @@
 import app from "./app";
-
-const port = 9000;
+import config from './config/index'
+const port = config.serverPort || 9000;
 
 const start= async()=>{
 //  db connection

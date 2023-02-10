@@ -2,8 +2,7 @@ import { NextFunction, Request, Response, Router } from "express";
 const authRoutes = Router()
 
 authRoutes.get('/login', (req: Request, res: Response, next: NextFunction)=>{
-    console.info("AQUIIIII")
-    res.send("login")
+    res.status(200).send("LOGIN")
 })
 
-export= authRoutes
+export default authRoutes
