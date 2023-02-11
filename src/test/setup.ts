@@ -1,10 +1,16 @@
+import { db } from '../config/database';
+
 beforeAll(async () => {
-    try { 
-        console.log("🚀 ~ file: setup.ts:10 ~ beforeAll ~ try")
-        // await mongoose.connect(getTestMongoUrl());
-        // logger.info('Connected to testing MongoDb ');
-    } catch (error) {    
-        console.log("🚀 ~ file: setup.ts:7 ~ beforeAll ~ error", error)
-        // logger.info(`Failed to connect to MongoDb ${error}`);
-    }
-})
+//   process.env.JWT_KEY = 'm6wmokDLXinYLtmVJu1sJn65TEa9fao4';
+  try {
+    await db.sequelize.authenticate();
+    console.log(`Connection to ${db.sequelize.getDatabaseName()} has been established successfully.`);
+  } catch (error) {
+    console.error(`Unable to connect to the database ${db.sequelize.getDatabaseName()}.`, error);
+    throw error;
+  }
+
+  await db.sequelize.sync({ alter: true }).catch((e) => {
+    throw new Error(e);
+  });
+});

@@ -7,7 +7,7 @@
     "dev": "concurrently \"tsc --watch\" \"nodemon dist/index.js \"",
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "jest --coverage"
+    "test": "NODE_ENV=testing jest --coverage --forceExit"
   },
   "jest": {
     "preset": "ts-jest",
@@ -27,13 +27,7 @@
     "testRegex": ".test.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "coverageDirectory": "../reports/coverage",
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/src/i18n/",
-      "<rootDir>/src/docs/"
-    ]
+    }
   },
   "keywords": [],
   "author": "",

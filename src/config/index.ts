@@ -13,7 +13,14 @@ if (error) {
 }
 
 const config = {
-  serverPort: envVars.SERVER_PORT
+  nodeEnv: envVars.NODE_ENV,
+  serverPort: envVars.SERVER_PORT,
+  db_user: envVars.DB_USER,
+  db_host: envVars.DB_HOST,
+  db_name: envVars.DB_NAME,
+  db_password: envVars.DB_PASSWORD,
+  db_test: envVars.DB_NAME_TEST,
+  db_dialect: envVars.DIALECT
 }
 
 export default config;
